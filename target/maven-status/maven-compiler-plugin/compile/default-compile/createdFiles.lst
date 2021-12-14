@@ -1,3 +1,4 @@
 com\base\App.class
 com\db\Conn.class
 com\ui\MainUI.class
+com\db\Queries.class

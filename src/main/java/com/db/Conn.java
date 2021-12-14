@@ -11,11 +11,11 @@ public class Conn {
 		Connection c = null;
 
       	try{
-         	String url = "jdbc:postgresql://localhost/postgres";
-			Properties props = new Properties();
-			props.setProperty("user","postgres");
+         	String url = "jdbc:postgresql://localhost:5432/postgres";
+			   Properties props = new Properties();
+			   props.setProperty("user","postgres");
 
-			c = DriverManager.getConnection(url, props);
+			   c = DriverManager.getConnection(url, props);
 
       	}catch (Exception e) {
          	e.printStackTrace();
