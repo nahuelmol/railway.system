@@ -3,8 +3,11 @@ package com.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.sql.SQLException;
 
 import java.util.Properties;
+
+import com.db.Queries;
 
 public class Conn {
 	public static void main(){
@@ -17,7 +20,13 @@ public class Conn {
 
 			   c = DriverManager.getConnection(url, props);
 
-      	}catch (Exception e) {
+            if(Queries.tbl_ifexists(c)){
+               System.out.println("Tables already exist!\n");
+            }else{
+               Queries.create_base_tbls(c);
+            }
+
+      	}catch (SQLException e) {
          	e.printStackTrace();
          	System.err.println(e.getClass().getName()+": "+e.getMessage());
          	System.exit(0);
